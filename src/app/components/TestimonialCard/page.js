@@ -1,8 +1,16 @@
+"use client";
+
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 
-const TestimonialCard = ({ testimonial }) => {
+const TestimonialCard = ({
+  testimonial = {
+    rating: 5,
+    content: "",
+    name: "Anonymous",
+  },
+}) => {
   return (
     <div className="relative p-8 bg-white rounded-2xl transition-all duration-300">
       {/* Decorative Elements */}
@@ -22,7 +30,9 @@ const TestimonialCard = ({ testimonial }) => {
               key={i}
               icon={faStar}
               className={`${
-                i < testimonial.rating ? "text-yellow-400" : "text-gray-200"
+                i < (testimonial?.rating || 0)
+                  ? "text-yellow-400"
+                  : "text-gray-200"
               } text-xl transition-colors duration-300`}
             />
           ))}
@@ -30,7 +40,7 @@ const TestimonialCard = ({ testimonial }) => {
 
         {/* Testimonial Text */}
         <p className="text-gray-700 text-lg leading-relaxed mb-8 font-light">
-          "{testimonial.content}"
+          "{testimonial?.content || ""}"
         </p>
 
         {/* Author Info */}
@@ -38,13 +48,13 @@ const TestimonialCard = ({ testimonial }) => {
           <div className="flex-shrink-0">
             <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-xl">
-                {testimonial.name.charAt(0)}
+                {testimonial?.name?.charAt(0) || "A"}
               </span>
             </div>
           </div>
           <div className="border-l-2 border-gray-100 pl-4">
             <h4 className="font-semibold text-gray-800 mb-1">
-              {testimonial.name}
+              {testimonial?.name || "Anonymous"}
             </h4>
             <div className="flex items-center gap-2">
               <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span>

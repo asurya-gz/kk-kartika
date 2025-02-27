@@ -1,20 +1,25 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
-const DoctorCard = ({ doctor, onDoctorClick }) => {
+const DoctorCard = ({ doctor = {}, onDoctorClick = () => {} }) => {
+  // Default values for doctor properties
+  const { image = "/default-doctor-image.jpg", name = "Doctor Name" } = doctor;
+
   return (
     <div className="p-6">
       <div className="mb-6 relative w-full h-72 overflow-hidden rounded-xl">
         <Image
-          src={doctor.image}
-          alt={doctor.name}
+          src={image}
+          alt={name}
           layout="fill"
           objectFit="cover"
           className="transition-transform duration-300 group-hover:scale-105"
         />
       </div>
       <h3 className="text-xl font-bold mb-2 text-gray-800 group-hover:text-green-500 transition-colors duration-300">
-        {doctor.name}
+        {name}
       </h3>
       <div className="flex justify-center space-x-4">
         <button
@@ -26,7 +31,7 @@ const DoctorCard = ({ doctor, onDoctorClick }) => {
         <button
           className="border-2 border-pink-500 text-pink-500 hover:bg-pink-50 py-2 px-6 rounded-full transition duration-300"
           onClick={() => {
-            const whatsappMessage = `Hallo Klinik Kartika!. Saya ingin membuat janji dengan dokter ${doctor.name}`;
+            const whatsappMessage = `Hallo Klinik Kartika!. Saya ingin membuat janji dengan dokter ${name}`;
             const whatsappURL = `https://wa.me/6282249906957?text=${encodeURIComponent(
               whatsappMessage
             )}`;
