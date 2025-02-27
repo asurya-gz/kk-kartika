@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes floating1 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(10px, -15px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes floating2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-15px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes floating3 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(15px, 15px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes floating4 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-10px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.7s ease-out forwards;
+}
+
+.animate-floating1 {
+  animation: floating1 6s ease-in-out infinite;
+}
+
+.animate-floating2 {
+  animation: floating2 8s ease-in-out infinite;
+}
+
+.animate-floating3 {
+  animation: floating3 7s ease-in-out infinite;
+}
+
+.animate-floating4 {
+  animation: floating4 9s ease-in-out infinite;
+}
+
