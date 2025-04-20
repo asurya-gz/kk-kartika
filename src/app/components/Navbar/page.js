@@ -54,6 +54,12 @@ export default function Navbar() {
             >
               Kontak
             </Link>
+            <Link
+              href="/bpjs"
+              className="text-gray-700 hover:text-pink-500 font-medium"
+            >
+              BPJS
+            </Link>
           </nav>
 
           <Link
@@ -135,6 +141,12 @@ export default function Navbar() {
                 className="text-gray-700 hover:text-pink-500 font-medium py-2"
               >
                 Kontak
+              </Link>
+              <Link
+                href="/bpjs"
+                className="text-gray-700 hover:text-pink-500 font-medium py-2"
+              >
+                BPJS
               </Link>
               <Link
                 href="https://wa.me/6282249906957?text=Hallo%20Klinik%20Kartika!"
